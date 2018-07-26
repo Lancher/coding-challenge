@@ -8,35 +8,32 @@
 
 
 def ladderLength(self, beginWord, endWord, wordList):
-    # 1. check if the end worf in the list
-    if endWord not in wordList:
-        return 0
-
-    words = set()
+    # visited/unvisited word
+    vst, unvst = set(), set()
     for w in wordList:
-        words.add(w)
-    words.add(beginWord)
+        unvst.add(w)
 
-    dst = 1
+    # chars
+    chars = [chr(ord('a') + i) for i in range(26)]
+
+    # bfs
     q = [beginWord]
-    v = {w: 0 for w in words}
-    v[beginWord] = 1
 
+    res = 1
     while q:
+        res += 1
         next_q = []
-        dst += 1
-
-        for w in q:
-            for i in range(len(w)):
-                for j in range(ord('a'), ord('a') + 26):
-                    n_w = w[:i] + chr(j) + w[i + 1:]
-                    # 2. check if new string in the words
-                    if n_w in words:
-                        if n_w == endWord:
-                            return dst
-                        if not v[n_w]:
-                            v[n_w] = 1
-                            next_q.append(n_w)
+        for word in q:
+            # generate next word
+            for i in range(len(word)):
+                for c in chars:
+                    nxt_word = word[:i] + c + word[i + 1:]
+                    if nxt_word in unvst:
+                        if nxt_word == endWord:
+                            return res
+                        else:
+                            next_q.append(nxt_word)
+                            unvst.remove(nxt_word)
         q = next_q
     return 0
 
@@ -112,6 +109,7 @@ def findLadders(self, beginWord, endWord, wordList):
 
     return self.dfs(beginWord, endWord, neighbors, min_dst)
 
+
 def bfs(self, beginWord, endWord, wordList, neighbors):
     # create dict
     unvisited = set()
@@ -161,6 +159,7 @@ def bfs(self, beginWord, endWord, wordList, neighbors):
 
         dst += 1
     return min_dst if min_dst else 0
+
 
 def dfs(self, beginWord, endWord, neighbors, min_dst):
     transforms = []

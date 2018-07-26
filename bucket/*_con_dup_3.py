@@ -12,7 +12,7 @@ def containsNearbyAlmostDuplicate(self, nums, k, t):
     d = {}
 
     for i in range(n):
-        # 1) maintain window size `k+1` [0 1 2 3] 4, k = 3
+        # 1) maintain window size `k+1` [0 1 2 3], k = 3
         if i >= k + 1:
             idx = int(nums[i - k - 1] / (t + 1)) - 1 if nums[i - k - 1] < 0 else int(nums[i - k - 1] / (t + 1))
             d.pop(idx)

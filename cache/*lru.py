@@ -15,6 +15,7 @@ class Node:
 
 class DoubleLinkedList:
     def __init__(self):
+        # use real head & tail
         self.head = Node(None, None)
         self.tail = Node(None, None)
         self.head.nxt = self.tail
