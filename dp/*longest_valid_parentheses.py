@@ -23,3 +23,29 @@ def longestValidParentheses(self, s):
                         concat = dp[pair_i - 1] if 0 <= pair_i - 1 else 0
                         dp[i] = max(dp[i], concat + i - pair_i + 1)
     return max(dp)
+
+
+# LEETCODE@ 678. Valid Parenthesis String
+#
+# 1. very smart.
+#
+#   Example: (**))
+#
+# --END--
+
+
+def checkValidString(self, s):
+    lo, hi = 0, 0
+    for c in s:
+        if c == '(':
+            lo, hi = lo + 1, hi + 1
+        elif c == ')':
+            lo, hi = lo - 1, hi - 1
+        else:
+            lo, hi = lo - 1, hi + 1
+
+        # trim invalid
+        lo = max(lo, 0)
+        if hi < 0:
+            return False
+    return lo == 0

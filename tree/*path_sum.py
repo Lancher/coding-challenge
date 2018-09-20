@@ -101,3 +101,31 @@ def dfs(self, node, sum, acc, arr, res):
             if acc + node.val == sum:
                 res.append(arr[:])
             arr.pop()
+
+
+# LEETCODE@ 666. Path Sum IV
+#
+# --END--
+
+
+def pathSum(self, nums):
+    # use 2d matrix to build a tree
+    tree = [[[0, 0] for j in range(8)] for i in range(4)]
+
+    for num in nums:
+        num = str(num)
+        i, j, v = int(num[0]) - 1, int(num[1]) - 1, int(num[2])
+        tree[i][j][0] = v
+        tree[i][j][1] = 1
+
+    for i in range(2, -1, -1):
+        for j in range(0, 2 ** i):
+            c1, c2 = j * 2, j * 2 + 1
+            if tree[i + 1][c1][1] + tree[i + 1][c2][1] > 0:
+                tree[i][j][1] = tree[i + 1][c1][1] + tree[i + 1][c2][1]
+
+    res = 0
+    for i in range(4):
+        for j in range(8):
+            res += tree[i][j][0] * tree[i][j][1]
+    return res

@@ -42,3 +42,33 @@ def lengthOfLIS(self, nums):
         dp[lo] = num
         res = max(res, lo)
     return res
+
+
+def findNumberOfLIS(self, nums):
+    if not nums:
+        return 0
+    n = len(nums)
+
+    # ln[i] the longest length sebseq endw at i
+    # cnt[i] the number of longest length sebseq endw at i
+    dp_ln = [1] * n
+    dp_cnt = [1] * n
+
+    for i in range(1, n):
+        for j in range(i):
+            if nums[j] < nums[i]:
+                ln, cnt = dp_ln[j] + 1, dp_cnt[j]
+                # we found the better length, we can abandon the shorter length since it wont affect our answer
+                if ln > dp_ln[i]:
+                    dp_ln[i] = ln
+                    dp_cnt[i] = cnt
+                # if we found the same length, that is also the solution ends at i.
+                elif ln == dp_ln[i]:
+                    dp_cnt[i] += cnt
+
+    res = 0
+    max_ln = max(dp_ln)
+    for i in range(n):
+        if dp_ln[i] == max_ln:
+            res += dp_cnt[i]
+    return res

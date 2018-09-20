@@ -52,7 +52,7 @@ def kthSmallestPrimeFraction(self, A, K):
     # 2: [3/5]
     # 3: []
 
-    # binaray search
+    # binary search
     lo, hi = 0, 1
     while lo < hi:
         mi = (lo + hi) / 2

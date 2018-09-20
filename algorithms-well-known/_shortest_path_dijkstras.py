@@ -32,7 +32,9 @@ def dijkstra(g):
 
         # put adjacent nodes into heap
         for j in g[i]:
-            heapq.heappush(h, [w + g[i][j], j])
+            # if j  be added to the dst, it means the j already the shortest.
+            if dst[j] == -1:
+                heapq.heappush(h, [w + g[i][j], j])
 
     return dst
 
