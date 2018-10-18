@@ -15,6 +15,7 @@
 #   Node 1 and his children will be done and append to array
 #   [4, 3, 2, 0, 1] reverse [1, 0, 2, 3, 4]
 #
+# 4. TODO: another way to do the topological sort is LeetCode 444.
 #
 # --END--
 

@@ -45,3 +45,25 @@ def rob2(self, nums, s, e):
         cur = max(pre_pre + nums[i], pre)
         pre_pre, pre = pre, cur
     return pre
+
+
+
+# LEETCODE@ 337	House Robber III
+
+def rob_helper(self, root):
+    if root is None:
+        return 0, 0
+    # left = max value if you include the direct child
+    # right = max value if you do not include the direct child
+    a, b = self.rob_helper(root.left)
+    c, d = self.rob_helper(root.right)
+    return max(a + c, root.val + b + d), a + c
+
+
+def rob(self, root):
+    """
+    :type root: TreeNode
+    :rtype: int
+    """
+    return max(self.rob_helper(root))
+

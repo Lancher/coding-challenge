@@ -6,10 +6,12 @@
 
 
 def move_zeros(nums):
+    n = len(nums)
     j = 0
-    for i in range(len(nums)):
-        nums[i], nums[j] = nums[j], nums[i]
-        j += 1
+    for i in range(n):
+        if nums[i] !=0:
+            nums[i], nums[j] = nums[j], nums[i]
+            j += 1
 
 
 def move_zeros_with_less_operations(nums):
