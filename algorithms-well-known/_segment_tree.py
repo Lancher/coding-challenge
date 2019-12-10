@@ -33,77 +33,59 @@
 
 class Node:
     def __init__(self, s, e, val):
-        self.s, self.e, self.val = s, e, val
-        self.left, self.right = None, None
+        self.s, self.e = s, e
+        self.val = val
+        self.left = self.right = None
 
 
-class ST:
+class SegmentTree:
     def __init__(self, nums):
-        self.nums = nums
-        self.root = self.build(0, len(nums) - 1)
+        self.root = self._build(0, len(nums) - 1, nums)
 
-    def build(self, s, e):
-        if s == e:
-            return Node(s, e, self.nums[s])
-        elif s < e:
-            m = int((s + e) / 2)
-            node = Node(s, e, 0)
-            node.left = self.build(s, m - 1)
-            node.right = self.build(m + 1, e)
-            return node
-        else:
+    def _build(self, s, e, nums):
+        if s > e:
             return None
+        elif s == e:
+            return Node(s, e, nums[s])
+        else:
+            m = (s + e) // 2
+            node = Node(s, e, 0)
+            node.left = self._build(s, m, nums)
+            node.right = self._build(m + 1, e, nums)
+            node.val += 0 if node.left is None else node.left.val
+            node.val += 0 if node.right is None else node.right.val
+            return node
 
-    def update(self, node, i, val):
-        if not node:
+    def update(self, i, val):
+        self._update(self.root, i, val)
+
+    def _update(self, node, i, val):
+        if node is None:
             return 0
-
-        # 1) Not in the range
-        if i < node.s or node.e < i:
-            # RangeSum: return 0
-            return 0
-
-        # 2) We arrive the leaf
-        # RangeSum: assign the value
-        # MinQuery: assign the value
-        if i == node.s == node.e:
+        # 1) not in the range
+        elif node.s > i or node.e < i:
+            return node.val
+        # 2) total overlap
+        elif node.s == node.e == i:
             node.val = val
             return node.val
-
-        # 3) Intermediate nodes
-        # RangeSum: sum two node
-        # MinQuery: min(update(node.left), update(node.right))
-        node.val = self.update(node.left, i, val) + self.update(node.right, i, val)
-        return node.val
-
-    # RangeSum: sum()
-    def sum(self, node, s, e):
-        if not node:
-            return 0
-
-        # 1) not in the range
-        if e < node.s or node.e < s:
-            return 0
-
-        # 2) total overlap
-        if s <= node.s and node.e <= e:
+        # 3) partial overlap
+        else:
+            node.val = self._update(node.left, i, val) + self._update(node.right, i, val)
             return node.val
 
-        # 3) partial overlap
-        return self.sum(node.left, s, e) + self.sum(node.right, s, e)
+    def range_sum(self, s, e):
+        return self._range_sum(self.root, s, e)
 
-    # MinQuery: min()
-    def min(self, node, s, e):
-        if not node:
-            return float('inf')
-
+    def _range_sum(self, node, s, e):
+        if node is None:
+            return 0
         # 1) not in the range
-        if e < node.s or node.e < s:
-            return float('inf')
-
+        elif node.e < s or node.s > e:
+            return 0
         # 2) total overlap
-        if s <= node.s and node.e <= e:
+        elif s <= node.s and node.e <= e:
             return node.val
-
         # 3) partial overlap
-        return min(self.min(node.left, s, e), self.min(node.right, s, e))
+        else:
+            return self._range_sum(node.left, s, e) + self._range_sum(node.right, s, e)

@@ -31,7 +31,6 @@
 import functools
 
 
-
 def numIslands(n, n_arr):
     # build limits of N-D array
     limits = []

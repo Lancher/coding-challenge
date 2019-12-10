@@ -21,8 +21,6 @@ def topKFrequent(self, nums, k):
     return res
 
 
-
-
 def topKFrequent(self, nums, k):
     # init
     n = len(nums)

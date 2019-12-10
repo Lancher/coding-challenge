@@ -35,7 +35,7 @@ class QuickSelect:
 
     def select(self, nums, k):
         lo, hi = 0, len(nums) - 1
-        while lo < hi:
+        while True:
             # P can be the same as lo and hi which will cause while loop
             p = self._partition(nums, lo, hi)
             if p == k:
@@ -46,4 +46,7 @@ class QuickSelect:
             else:
                 # P can be the same as lo and hi which will cause while loop
                 hi = p - 1
-        return nums[k]
+
+
+qs = QuickSelect()
+qs.select([1, 1, 1, 1], )

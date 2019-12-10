@@ -4,7 +4,7 @@
 #
 #   http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
 #
-# 2) In directed graph, we can use DFS or Union-Find.
+# 2) In udirected graph, we can use DFS or Union-Find.
 #
 #   https://www.geeksforgeeks.org/detect-cycle-undirected-graph/
 #   https://www.geeksforgeeks.org/union-find/
@@ -62,8 +62,9 @@ def detect_circle_udg(g):
                 if dfs(v, u):
                     return True
             # avoid go back
-            #
-            # 0 --- 1
+			#
+            # v/parent  u
+            #  0 ------ 1
             #
             # node 1 may go back to node 0
             elif v != parent:

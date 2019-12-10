@@ -82,27 +82,27 @@ def backPackIII(self, m, A, V):
 #
 # 1) Backpack Problem 4 (Weight, Infinite Items, How many times)
 #
-# 2) Given candidate items [2,3,6,7] and target 7,
+# 2) Given nums = [1, 2, 4], target = 4
 #
-#   A solution set is:
-#
-#   [7]
-#   [2, 2, 3]
-#   return 2
+#   The possible combination ways are:
+#   [1, 1, 1, 1]
+#   [1, 1, 2]
+#   [2, 2]
+#   [4]
 #
 # --END--
 
 
-def backPackIV(self, m, A):
-    m, n = len(A), m
+def backPackIV(nums, target):
+    m, n = len(nums), target
     dp = [0] * (n + 1)
 
     # 0 item has 1 combination
     dp[0] = 1
     for i in range(m):
         for j in range(n):
-            if 0 <= j + 1 - A[i]:
-                dp[j+1] += dp[j+1-A[i]]
+            if 0 <= j + 1 - nums[i]:
+                dp[j+1] += dp[j+1-nums[i]]
     return dp[n]
 
 
@@ -110,21 +110,17 @@ def backPackIV(self, m, A):
 #
 # 1) Backpack Problem 5 (Weight, Single Item, How many times)
 #
-# 2) Example
+# 2) Given nums = [1, 2, 4], target = 4
 #
-#   Given candidate items [1,2,3,3,7] and target 7,
-#   A solution set is:
-#
-#   [7]
-#   [1, 3, 3]
-#   return 2
+#   The possible combination ways are:
+#   [4]
 #
 # --END--
 
 
-def backPackV(self, A, target):
-    m, n = len(A), target
-    dp = [[0] for j in range(n + 1) for i in range(m + 1)]
+def backPackV(nums, target):
+    m, n = len(nums), target
+    dp = [[0 for j in range(n + 1)] for i in range(m + 1)]
 
     for i in range(m + 1):
         dp[i][0] = 1
@@ -134,8 +130,8 @@ def backPackV(self, A, target):
             # we can not select A[i]
             dp[i+1][j+1] = dp[i][j+1]
             # we can select A[i]
-            if 0 <= j + 1 - A[i]:
-                dp[i+1][j+1] += dp[i][j+1-A[i]]
+            if 0 <= j + 1 - nums[i]:
+                dp[i+1][j+1] += dp[i][j+1-nums[i]]
 
     return dp[m][n]
 
@@ -157,7 +153,7 @@ def backPackV(self, A, target):
 # --END--
 
 
-def backPackVI(self, nums, target):
+def backPackVI(nums, target):
     m, n = len(nums), target
     dp = [0] * (n + 1)
 

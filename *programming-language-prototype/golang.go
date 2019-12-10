@@ -1,8 +1,25 @@
 package _programming_language_prototype
 
+import "fmt"
+
+// array declaration
+[N]Type
+[N]Type{value1, value2, ..., valueN}
+[...]Type{value1, value2, ..., valueN}
+
+// slice declaration
+make([]Type, length, capacity)
+make([]Type, length)
+[]Type{}
+[]Type{value1, value2, ..., valueN}
+
 
 import "fmt"
 fmt.Println("")
+
+
+fmt.Println(10 / 3)  // 3
+fmt.Println(10 / 3)  // 3.3333333
 
 
 import "strconv"
@@ -12,17 +29,38 @@ s := strconv.Itoa(-42)
 
 import "sort"
 
-sort.Sort(s[:], func(i, j int) bool {
+sort.Slice(s[:], func(i, j int) bool {
 	return s[i].Lo < s[j].Lo
 })
 
 // sort by lex or dict order
 sort.Strings(res)
+sort.Ints(s)
+
+//
+family := []struct {
+	Name string
+	Age  int
+}{
+	{"Alice", 23},
+	{"David", 2},
+	{"Eve", 2},
+	{"Bob", 25},
+}
+
+// Sort by age, keeping original order or equal elements.
+sort.SliceStable(family, func(i, j int) bool {
+	return family[i].Age < family[j].Age
+})
 
 
 // append two slice
 append([]int{1,2}, []int{3,4}...)
 
+// map
+if val, ok := dict["foo"]; ok {
+	//do something here
+}
 
 // char to ascii
 int('a')
@@ -91,6 +129,8 @@ const MinUint = 0
 const MaxInt = int(MaxUint >> 1)
 const MinInt = -MaxInt - 1
 
+//The builtin copy(dst, src) copies min(len(dst), len(src)) elements.
+
 
 // heap
 import (
@@ -124,3 +164,44 @@ fmt.Printf("minimum: %d\n", (*h)[0])
 for h.Len() > 0 {
 	fmt.Printf("%d ", heap.Pop(h))
 }
+
+
+func sum(nums ...int) {
+	fmt.Print(nums, " ")
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	fmt.Println(total)
+}
+
+// iterate key value mapping
+for k, v := range m {
+	fmt.Printf("key[%s] value[%s]\n", k, v)
+}
+
+// delete key in map
+delete(m, key)
+
+// struct const
+
+
+// golang shift must be uint
+1 << uint(a)
+
+
+
+// we dont have to init it agian
+type Union struct {
+	Parent []int
+	Size [][]int
+}
+un := Union{}
+un.Parent = append(un.Parent)
+
+
+fmt.Println(math.Ceil(x))  // 2
+fmt.Println(math.Floor(x))  // 1
+int(1 / 3)
+
+// Golang Pass slices
