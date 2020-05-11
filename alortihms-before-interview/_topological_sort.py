@@ -73,7 +73,7 @@ def topological_sort_bfs(g):
             parent[c].add(p)
 
     # queue with
-    q = [c for c in parent if len(parent[c] == 0)]
+    q = [c for c in parent if len(parent[c]) == 0]
     for node in q:
         visited[node] = 1
 
@@ -82,7 +82,7 @@ def topological_sort_bfs(g):
         nxt_q = []
         for node in q:
             res.append(node)
-            for nxt_node in q[node]:
+            for nxt_node in g[node]:
                 # skip visited nodes
                 if visited[nxt_node]:
                     continue
@@ -91,6 +91,7 @@ def topological_sort_bfs(g):
                 if len(parent[nxt_node]) == 0:
                     nxt_q.append(nxt_node)
                     visited[nxt_node] = 1
+        q = nxt_q
     return res
 
 g = {0: set([2]), 1: set([2]), 2: set([3]), 3: set([4]), 4: set()}

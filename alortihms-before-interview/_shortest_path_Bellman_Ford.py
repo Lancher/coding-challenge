@@ -18,14 +18,8 @@ def bellman_ford(g):
     dst = [float('inf')] * len(g)
     dst[0] = 0
 
-    # iterate n - 1 times
-    #  0      1      2      3      4     5
-    # inf <- inf <- inf <- inf <- inf <- 0
-    # inf <- inf <- inf <- inf <- 3.7 <- 0
-    # inf <- inf <- inf <- 6.2 <- 3.7 <- 0
-    # and so on...
-
-    for _ in range(n - 1):
+    # iterate n times
+    for _ in range(n):
 
         # iterate each edges
         for i in range(n):

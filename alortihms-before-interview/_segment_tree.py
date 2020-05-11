@@ -32,47 +32,49 @@
 
 
 class Node:
-    def __init__(self, s, e, val):
+    def __init__(self, s, e, num, wgh):
         self.s, self.e = s, e
-        self.val = val
+        self.num = num
+        self.wgh = wgh
         self.left = self.right = None
 
 
 class SegmentTree:
-    def __init__(self, nums):
-        self.root = self._build(0, len(nums) - 1, nums)
+    def __init__(self, nums, wghs):
+        self.root = self._build(0, len(nums) - 1, nums, wghs)
 
-    def _build(self, s, e, nums):
+    def _build(self, s, e, nums, wghs):
         if s > e:
             return None
         elif s == e:
-            return Node(s, e, nums[s])
+            return Node(s, e, nums[s], wghs[s])
         else:
             m = (s + e) // 2
-            node = Node(s, e, 0)
-            node.left = self._build(s, m, nums)
-            node.right = self._build(m + 1, e, nums)
-            node.val += 0 if node.left is None else node.left.val
-            node.val += 0 if node.right is None else node.right.val
+            node = Node(s, e, None, 0)
+            node.left = self._build(s, m, nums, wghs)
+            node.right = self._build(m + 1, e, nums, wghs)
+            node.wgh += 0 if node.left is None else node.left.wgh
+            node.wgh += 0 if node.right is None else node.right.wgh
             return node
 
-    def update(self, i, val):
-        self._update(self.root, i, val)
+    def update(self, i, num, wgh):
+        self._update(self.root, i, num, wgh)
 
-    def _update(self, node, i, val):
+    def _update(self, node, i, num, wgh):
         if node is None:
             return 0
         # 1) not in the range
         elif node.s > i or node.e < i:
-            return node.val
+            return node.wgh
         # 2) total overlap
         elif node.s == node.e == i:
-            node.val = val
-            return node.val
+            node.num = num
+            node.wgh = wgh
+            return node.wgh
         # 3) partial overlap
         else:
-            node.val = self._update(node.left, i, val) + self._update(node.right, i, val)
-            return node.val
+            node.wgh = self._update(node.left, i, num, wgh) + self._update(node.right, i, num, wgh)
+            return node.wgh
 
     def range_sum(self, s, e):
         return self._range_sum(self.root, s, e)
@@ -85,12 +87,43 @@ class SegmentTree:
             return 0
         # 2) total overlap
         elif s <= node.s and node.e <= e:
-            return node.val
+            return node.wgh
         # 3) partial overlap
         else:
             return self._range_sum(node.left, s, e) + self._range_sum(node.right, s, e)
 
-nums = [2, 3, 4, 5, 2, 1]
+    def traverse(self, wgh):
+        sm = 0
+        pre, cur = None, self.root
+        while cur:
+            prefix = cur.left.wgh if cur.left else 0
+            prefix += sm
+            if prefix <= wgh:
+                sm = prefix
+                pre, cur = cur, cur.right
+            else:
+                pre, cur = cur, cur.left
+        return pre
 
-st = SegmentTree(nums)
-print(st.range_sum(0, 0))
+
+# We pick an element based on the weight, and we will not put elements
+# back.
+nums = [101, 48, -18, 120, 8, 11]
+wghs = [2, 3, 4, 5, 2, 1]
+n = len(nums)
+st = SegmentTree(nums, wghs)
+print('Sum:', st.range_sum(0, n - 1))
+
+# If we have a random weight 15.1
+print('Delete idx:', st.traverse(15.1).s)
+delete = st.traverse(15.1)
+
+# We swap with last element
+if delete.s == n - 1:
+    st.update(delete.s, None, 0)
+else:
+    swap = st.traverse(st.range_sum(0, n - 1))
+    st.update(delete.s, swap.num, swap.wgh)
+    st.update(n - 1, None, 0)
+n -= 1
+print('Sum:', st.range_sum(0, n - 1))
