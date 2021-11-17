@@ -49,4 +49,4 @@ class QuickSelect:
 
 
 qs = QuickSelect()
-print(qs.select([1, 1, 1, 1], 2))
+qs.select([1, 1, 1, 1], 2)

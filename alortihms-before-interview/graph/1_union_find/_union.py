@@ -5,7 +5,6 @@
 #   Appending makes the depth of tree to log(n).
 #   Path compression makes the running time to c(N+M log*n).
 #
-#
 # --END--
 
 

@@ -69,6 +69,9 @@ int('a')
 // ascii to char
 rune(70)
 
+// rune to string
+string(rune)
+
 
 import "strings"
 
@@ -121,7 +124,7 @@ import "math"
 a := 10
 b := 8
 math.Pow(float64(a), float64(b))
-
+math.Pow(a, b)
 
 // Max/Min
 const MaxUint = ^uint(0)
