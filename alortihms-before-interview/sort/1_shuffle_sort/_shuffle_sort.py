@@ -1,7 +1,8 @@
-# 1. import random.randint
-#
-#
-# --END--
+"""
+1. import random.randint
+
+--END--
+"""
 
 
 import random

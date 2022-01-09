@@ -1,8 +1,8 @@
-# 1. import queue.Queue
-#
-#
-# --END--
+"""
+1. import queue.Queue
 
+--END--
+"""
 
 import queue
 

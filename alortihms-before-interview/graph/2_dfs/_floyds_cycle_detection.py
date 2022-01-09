@@ -1,27 +1,28 @@
-# 1. one slow node and one fast node
-#
-# 2. get the beginning of circle: set the slow node to head and run in the same speed
-#
-# 3. Example:
-#
-#
-#                              ---------------------------|
-#                              |
-#                        x =>  |  [ 8 ] <-- [ 7 ] <-- [ 6 ]  -
-#                              |    |                   ^    |
-#                              |    |                   |    |
-#                              -    v                   |    |
-#   [ 0 ] --> [ 1 ] --> [ 2 ] --> [ 3 ] --> [ 4 ] --> [ 5 ]  |  <= y
-#                                                            |
-#                                                            |
-#   |---------------------------------||----------------------
-#                   x
-#
-#   slow will walk (x + y)
-#   fast will walk (x + y) + (x + y)
-#
-#
-# --END--
+"""
+1. one slow node and one fast node
+
+2. get the beginning of circle: set the slow node to head and run in the same speed
+
+3. Example:
+
+
+                             ---------------------------|
+                             |
+                       x =>  |  [ 8 ] <-- [ 7 ] <-- [ 6 ]  -
+                             |    |                   ^    |
+                             |    |                   |    |
+                             -    v                   |    |
+  [ 0 ] --> [ 1 ] --> [ 2 ] --> [ 3 ] --> [ 4 ] --> [ 5 ]  |  <= y
+                                                           |
+                                                           |
+  |---------------------------------||----------------------
+                  x
+
+  slow will walk (x + y)
+  fast will walk (x + y) + (x + y)
+
+--END--
+"""
 
 
 def cycle_detection(g):

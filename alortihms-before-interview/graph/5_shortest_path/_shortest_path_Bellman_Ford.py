@@ -1,14 +1,16 @@
-# Bellman Ford algorithm
-#
-# 1. Idea:
-#
-#   Go through all vertices and relax the edges N times
-#
-# 2. Video:
-#
-#   https://www.youtube.com/watch?v=HoGSiB7tSeI&list=PLxc4gS-_A5VDvP_9W8JJ04zk6m1qTolzG&index=23
-#
-# --END
+"""
+Bellman Ford algorithm
+
+1. Idea:
+
+  Go through all vertices and relax the edges N times
+
+2. Video:
+
+  https://www.youtube.com/watch?v=HoGSiB7tSeI&list=PLxc4gS-_A5VDvP_9W8JJ04zk6m1qTolzG&index=23
+
+--END
+"""
 
 
 def bellman_ford(g):

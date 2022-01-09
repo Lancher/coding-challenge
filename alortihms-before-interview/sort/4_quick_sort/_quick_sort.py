@@ -1,18 +1,20 @@
-# 1. Quick sort, average time complexity is O(nlogn)
-#
-# 3. `hi` include value
-#
-# 2. Partition:
-#
-#   i,j               hi      i  j            hi
-#   [19, 3, 2, 37, 5, 8] => [19, 3, 2, 37, 5, 8]
-#
-#          i,j           hi        i   j         hi
-#   => [3, 19, 2, 37, 5, 8] => [3, 19, 2, 37, 5, 8]
-#
-#            ***here we swap i and j and increment i***
-#
-# --END--
+"""
+1. Quick sort, average time complexity is O(nlogn)
+
+3. `hi` include value
+
+2. Partition:
+
+  i,j               hi      i  j            hi
+  [19, 3, 2, 37, 5, 8] => [19, 3, 2, 37, 5, 8]
+
+         i,j           hi        i   j         hi
+  => [3, 19, 2, 37, 5, 8] => [3, 19, 2, 37, 5, 8]
+
+           ***here we swap i and j and increment i***
+
+--END--
+"""
 from random import randint
 
 

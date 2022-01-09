@@ -1,11 +1,12 @@
-# 1. https://www.geeksforgeeks.org/counting-sort/
-#
-# 2. counter length should be `mx - mn + 1`.
-#
-#   [1, 100] => [0, 1, .... 99] so it will be `100 - 99 + 1`
-#
-#
-# --END--
+"""
+1. https://www.geeksforgeeks.org/counting-sort/
+
+2. counter length should be `mx - mn + 1`.
+
+  [1, 100] => [0, 1, .... 99] so it will be `100 - 99 + 1`
+
+--END--
+"""
 
 
 def count_sort(nums):

@@ -1,6 +1,7 @@
-# post-order traversal
-# --END--
-
+"""
+post-order traversal
+--END--
+"""
 
 class Node:
     def __init__(self, val):

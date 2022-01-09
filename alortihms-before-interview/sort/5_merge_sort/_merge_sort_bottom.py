@@ -1,25 +1,27 @@
-# 1. Implement _merge(), _sort() and sort()
-#
-# 2. Bottom Up Flow:
-#
-#    sz = 1
-#   |-----|-----| |-----|-----| |-----|-----|
-#   [ 10 ] [ 12 ] [ 70 ] [ 11 ] [ 19 ] [ 32 ]
+"""
+1. Implement _merge(), _sort() and sort()
 
-#    sz = 2
-#   |------------|------------| |------------|------------| <- this should not run because
-#   [ 10 ] [ 12 ] [ 11 ] [ 70 ] [ 19 ] [ 32 ]                  only have two element, we need
-#                                                              two part to merge
-#    sz = 4
-#   |--------------------------|--------------------------| <- take care the second part
-#   [ 10 ] [ 12 ] [ 11 ] [ 70 ] [ 19 ] [ 32 ]
-#
-#    sz = 8 break
-# 
-# 3. The index of mi & hi should be excluded.
-#
-#
-# --END--
+2. Bottom Up Flow:
+
+   sz = 1
+  |-----|-----| |-----|-----| |-----|-----|
+  [ 10 ] [ 12 ] [ 70 ] [ 11 ] [ 19 ] [ 32 ]
+
+   sz = 2
+  |------------|------------| |------------|------------| <- this should not run because
+  [ 10 ] [ 12 ] [ 11 ] [ 70 ] [ 19 ] [ 32 ]                  only have two element, we need
+                                                             two part to merge
+   sz = 4
+  |--------------------------|--------------------------| <- take care the second part
+  [ 10 ] [ 12 ] [ 11 ] [ 70 ] [ 19 ] [ 32 ]
+
+   sz = 8 break
+
+3. The index of mi & hi should be excluded.
+
+
+--END--
+"""
 
 
 class MergeSort:

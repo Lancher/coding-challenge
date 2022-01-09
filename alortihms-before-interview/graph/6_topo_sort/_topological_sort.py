@@ -1,24 +1,26 @@
-# 1. DFS so the cycles is not allowed, but we can find the circle by
-#    coloring the nodes.
-#
-# 2. length of graph is the number of nodes
-#
-# 3. Example:
-#
-#   0 --> 2 --> 3 --> 4
-#         ^
-#   1 --- |
-#
-#   Node 4 and his children will be done and append to array
-#   Node 3 and his children will be done and append to array
-#   Node 2 and his children will be done and append to array
-#   Node 0 and his children will be done and append to array
-#   Node 1 and his children will be done and append to array
-#   [4, 3, 2, 0, 1] reverse [1, 0, 2, 3, 4]
-#
-# 4. TODO: another way to do the topological sort is LeetCode 444.
-#
-# --END--
+"""
+1. DFS so the cycles is not allowed, but we can find the circle by
+   coloring the nodes.
+
+2. length of graph is the number of nodes
+
+3. Example:
+
+  0 --> 2 --> 3 --> 4
+        ^
+  1 --- |
+
+  Node 4 and his children will be done and append to array
+  Node 3 and his children will be done and append to array
+  Node 2 and his children will be done and append to array
+  Node 0 and his children will be done and append to array
+  Node 1 and his children will be done and append to array
+  [4, 3, 2, 0, 1] reverse [1, 0, 2, 3, 4]
+
+4. TODO: another way to do the topological sort is LeetCode 444.
+
+--END--
+"""
 
 
 def topological_sort_dfs(g):

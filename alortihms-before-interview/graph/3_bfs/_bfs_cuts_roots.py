@@ -1,14 +1,11 @@
-# We have second variation for BFS.
-#
-# 1. We need to have one additonal graph for tacking how many
-#    incoming nodes for each node.
-#
-# 2.
-#
-#
-#
-# --END--
+"""
+We have second variation for BFS.
 
+1. We need to have one additonal graph for tacking how many
+   incoming nodes for each node.
+
+--END--
+"""
 
 import queue
 

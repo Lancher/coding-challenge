@@ -1,8 +1,9 @@
-# Questions related to linked list usually need to build dummy node
-# in the begining.
-#
-# --END--
+"""
+Questions related to linked list usually need to build dummy node
+in the begining.
 
+--END--
+"""
 
 class ListNode:
     def __init__(self, val=0, next=None):

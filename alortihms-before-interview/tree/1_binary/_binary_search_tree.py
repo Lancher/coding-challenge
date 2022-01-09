@@ -1,39 +1,41 @@
-# 1. build tree is O(nlogn), get & put & delete is O(logn)
-#
-# 2. Get:
-#
-#   Use Node `cur` to do iterative traversal.
-#
-# 3. Put:
-#
-#   Use `put()` and `_put()` to do recursive traversal.
-#
-# 4. Delete:
-#
-#   Use `delete()` and `_delete()` to do recursive traversal.
-#
-#    Find the successor:
-#
-#         [ cur ]      <---- If the right is None, the left node
-#        /       \           is our successor.
-#       /         \
-#    [ ? ]       [ None ]
-#
-#
-#         [ cur ]      <---- If the right is not None, we have to find
-#        /       \           the leftest node in cur.right and it is "X".
-#       /         \
-#    [ ? ]       [ ? ]
-#                  /
-#                 /
-#              [ X ]
-#
-# 5. Rank:
-#
-#   Number of nodes less than keys.
-#   Use `rank()` and `_rank()` to do recursive traversal.
-#
-# --END--
+"""
+1. build tree is O(nlogn), get & put & delete is O(logn)
+
+2. Get:
+
+  Use Node `cur` to do iterative traversal.
+
+3. Put:
+
+  Use `put()` and `_put()` to do recursive traversal.
+
+4. Delete:
+
+  Use `delete()` and `_delete()` to do recursive traversal.
+
+   Find the successor:
+
+        [ cur ]      <---- If the right is None, the left node
+       /       \           is our successor.
+      /         \
+   [ ? ]       [ None ]
+
+
+        [ cur ]      <---- If the right is not None, we have to find
+       /       \           the leftest node in cur.right and it is "X".
+      /         \
+   [ ? ]       [ ? ]
+                 /
+                /
+             [ X ]
+
+5. Rank:
+
+  Number of nodes less than keys.
+  Use `rank()` and `_rank()` to do recursive traversal.
+
+--END--
+"""
 
 
 class Node:

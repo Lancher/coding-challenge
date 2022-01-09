@@ -1,12 +1,13 @@
-# 1. Implement root(), connected() and union()
-#
-# 2. Time Complexity:
-#
-#   Appending makes the depth of tree to log(n).
-#   Path compression makes the running time to c(N+M log*n).
-#
-# --END--
+"""
+1. Implement root(), connected() and union()
 
+2. Time Complexity:
+
+  Appending makes the depth of tree to log(n).
+  Path compression makes the running time to c(N+M log*n).
+
+--END--
+"""
 
 class Union:
     def __init__(self, n):

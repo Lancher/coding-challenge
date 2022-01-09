@@ -1,32 +1,34 @@
-# 1. Python heap is min heap
-#
-#   import heapq
-#   h = []
-#   heapq.heappush(h, n)
-#   heapq.heappop(h)
-#
-# 2. Push to end, swim up.
-#
-#          0[ 6 ]
-#          /     \
-#         /       \
-#     1[ 8 ]   2[ 23 ]   <= parent is (i - 1) / 2
-#        /
-#       /
-#    3[ 2 ]              <= current is i, new append value 2 should swim up
-#
-# 3. Pop from head, sink down.
-#
-#          0[ 2 ]                      0[ 8 ]        <= 8 have to sink down
-#          /     \                     /     \
-#         /       \                   /       \
-#     1[ 6 ]   2[ 23 ]   ==>      1[ 6 ]   2[ 23 ]   <= children is (i * 2 + 1) & (i * 2 + 2)
-#        /                          /
-#       /                          /
-#    3[ 8 ]                    3[ X ]
-#
-#
-# --END--
+"""
+1. Python heap is min heap
+
+  import heapq
+  h = []
+  heapq.heappush(h, n)
+  heapq.heappop(h)
+
+2. Push to end, swim up.
+
+         0[ 6 ]
+         /     \
+        /       \
+    1[ 8 ]   2[ 23 ]   <= parent is (i - 1) / 2
+       /
+      /
+   3[ 2 ]              <= current is i, new append value 2 should swim up
+
+3. Pop from head, sink down.
+
+         0[ 2 ]                      0[ 8 ]        <= 8 have to sink down
+         /     \                     /     \
+        /       \                   /       \
+    1[ 6 ]   2[ 23 ]   ==>      1[ 6 ]   2[ 23 ]   <= children is (i * 2 + 1) & (i * 2 + 2)
+       /                          /
+      /                          /
+   3[ 8 ]                    3[ X ]
+
+
+--END--
+"""
 
 
 class MinHeap:

@@ -1,34 +1,36 @@
-# Segment Tree
-#
-# 1) Segment Tree for Range Sum
-#
-#   [-1, 3, 4, 0, 2, 1]
-#
-#                           (9)[0, 5]          <= sum [start index, end index]
-#                               |
-#                         ------------
-#                        /            \
-#                       /              \
-#                (6)[0, 2]             (3)[3, 5]
-#                   |                      |
-#                 -----                  -----
-#                /     \                /     \
-#               /       \              /       \
-#          (2)[0, 1]   (4)[2, 2]   (2)[3, 4]  (1)[5, 5]
-#             |                        |
-#           -----                    ------
-#           /    \                  /      \
-#          /      \                /        \
-#     (-1)[0, 0]  (3)[1, 1]    (0)[3, 3]   (2)[4, 4]
-#
-#
-#
-# 3) Examples:
-#
-#   Range Minimum Query: http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
-#   Range Sum: https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
-#
-# --END--
+"""
+Segment Tree
+
+1) Segment Tree for Range Sum
+
+  [-1, 3, 4, 0, 2, 1]
+
+                          (9)[0, 5]          <= sum [start index, end index]
+                              |
+                        ------------
+                       /            \
+                      /              \
+               (6)[0, 2]             (3)[3, 5]
+                  |                      |
+                -----                  -----
+               /     \                /     \
+              /       \              /       \
+         (2)[0, 1]   (4)[2, 2]   (2)[3, 4]  (1)[5, 5]
+            |                        |
+          -----                    ------
+          /    \                  /      \
+         /      \                /        \
+    (-1)[0, 0]  (3)[1, 1]    (0)[3, 3]   (2)[4, 4]
+
+
+
+3) Examples:
+
+  Range Minimum Query: http://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
+  Range Sum: https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/
+
+--END--
+"""
 
 
 class Node:

@@ -1,12 +1,14 @@
-# Single source shortest path: shortest path from S to all other points.
-#
-# 1. No negative weight allowed!!!
-#
-# 2. http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
-#
-# 3. https://www.youtube.com/watch?v=oJ9iR9QRsl0
-#
-# --END--
+"""
+Single source shortest path: shortest path from S to all other points.
+
+1. No negative weight allowed!!!
+
+2. http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
+
+3. https://www.youtube.com/watch?v=oJ9iR9QRsl0
+
+--END--
+"""
 
 import heapq
 

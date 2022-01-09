@@ -1,17 +1,18 @@
-# 1. Implement _merge(), _sort() and sort()
-#
-# 2. Get the middle element:
-#
-#     lo            mi                  hi
-#   [ 10 ] [ 12 ] [ 7 ] [ 11 ] [ 19 ] [ 32 ]
-#
-#     lo            mi           hi
-#   [ 10 ] [ 12 ] [ 7 ] [ 11 ] [ 19 ]
-#
-# 3. The index of mi & hi should be excluded.
-#
-#
-# --END--
+"""
+1. Implement _merge(), _sort() and sort()
+
+2. Get the middle element:
+
+    lo            mi                  hi
+  [ 10 ] [ 12 ] [ 7 ] [ 11 ] [ 19 ] [ 32 ]
+
+    lo            mi           hi
+  [ 10 ] [ 12 ] [ 7 ] [ 11 ] [ 19 ]
+
+3. The index of mi & hi should be excluded.
+
+--END--
+"""
 
 
 class MergeSort:

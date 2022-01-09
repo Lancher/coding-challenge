@@ -1,25 +1,29 @@
-# How to build minimum spanning tree with Kruskal Algorithms?
-#
-# 1) Create a Union Find class.
-#
-# 2) Put all edges into heapq
-#
-# 3. Pick one at a time to make sure two vertexes are not connected.
-#
-#  p0     1    p1
-#     *------*
-#     |\     |
-#     | \ 3  | 2
-#     |  \   |
-#   4 |   \  |
-#     |    \ |
-#     |     \|
-#     *------*
-#  p3    5     p2
-#
-#     minimum is 7 (4 + 1 + 2)
-#
-# --END--
+"""
+How to build minimum spanning tree with Kruskal Algorithms?
+
+1) Create a Union Find class.
+
+2) Put all edges into heapq
+
+3. Pick one at a time to make sure two vertexes are not connected.
+
+ p0     1    p1
+    *------*
+    |\     |
+    | \ 3  | 2
+    |  \   |
+  4 |   \  |
+    |    \ |
+    |     \|
+    *------*
+ p3    5     p2
+
+    minimum is 7 (4 + 1 + 2)
+
+--END--
+"""
+
+
 import heapq
 import collections
 

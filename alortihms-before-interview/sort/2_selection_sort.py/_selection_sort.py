@@ -1,9 +1,10 @@
-# 1. select minimum and swap with 0 and so on
-#
-# 2. time complexity is O(n^2), swapping is O(n)
-#
-#
-# --END --
+"""
+1. select minimum and swap with 0 and so on
+
+2. time complexity is O(n^2), swapping is O(n)
+
+--END --
+"""
 
 
 def selection_sort(nums):

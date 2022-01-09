@@ -1,17 +1,18 @@
-# 1. unsorted array select index k element, time complexity average O(n)
-#
-# 2. Partition:
-#
-#   i,j               hi      i  j            hi
-#   [19, 3, 2, 37, 5, 8] => [19, 3, 2, 37, 5, 8]
-#
-#          i,j           hi        i   j         hi
-#   => [3, 19, 2, 37, 5, 8] => [3, 19, 2, 37, 5, 8]
-#
-#            ***here we swap i and j and increment i***
-#
-#
-# --END--
+"""
+1. unsorted array select index k element, time complexity average O(n)
+
+2. Partition:
+
+  i,j               hi      i  j            hi
+  [19, 3, 2, 37, 5, 8] => [19, 3, 2, 37, 5, 8]
+
+         i,j           hi        i   j         hi
+  => [3, 19, 2, 37, 5, 8] => [3, 19, 2, 37, 5, 8]
+
+           ***here we swap i and j and increment i***
+
+--END--
+"""
 
 
 from random import randint

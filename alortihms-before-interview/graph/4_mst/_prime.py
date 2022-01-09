@@ -1,24 +1,27 @@
-# How to build minimum spanning tree with Prim's Algorithm
-#
-# 1) Pick any node as a starting point.
-#
-# 2) Use heapq ot pick smallest edge
-#
-#
-#  p0     1    p1
-#     *------*
-#     |\     |
-#     | \ 3  | 2
-#     |  \   |
-#   4 |   \  |
-#     |    \ |
-#     |     \|
-#     *------*
-#  p3    5     p2
-#
-#     minimum is 7 (4 + 1 + 2)
-#
-# --END--
+"""
+How to build minimum spanning tree with Prim's Algorithm
+
+1) Pick any node as a starting point.
+
+2) Use heapq ot pick smallest edge
+
+
+ p0     1    p1
+    *------*
+    |\     |
+    | \ 3  | 2
+    |  \   |
+  4 |   \  |
+    |    \ |
+    |     \|
+    *------*
+ p3    5     p2
+
+    minimum is 7 (4 + 1 + 2)
+
+--END--
+"""
+
 import collections
 import heapq
 

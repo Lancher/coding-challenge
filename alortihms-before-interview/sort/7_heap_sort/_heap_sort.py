@@ -1,20 +1,22 @@
-# 1. Create a max heap, Pop heap one by one, Push to the end
-#
-# 2. The time complexity is O(nlogn)
-#
-# 3. Example:
-#
-#
-#          0[ 23 ]
-#          /     \
-#         /       \
-#     1[ 8 ]    2[ 6 ]
-#        /
-#       /
-#    3[ 2 ]               <= swap (23) with (2) and then sink (2),
-#                            and so on...
-#
-# --END--
+"""
+1. Create a max heap, Pop heap one by one, Push to the end
+
+2. The time complexity is O(nlogn)
+
+3. Example:
+
+
+         0[ 23 ]
+         /     \
+        /       \
+    1[ 8 ]    2[ 6 ]
+       /
+      /
+   3[ 2 ]               <= swap (23) with (2) and then sink (2),
+                           and so on...
+
+--END--
+"""
 
 
 class HeapSort:

@@ -1,16 +1,17 @@
-# How to detect circle?
-#
-# 1) In directed graph, we use colors as flag to detect circle.
-#
-#   http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
-#
-# 2) In udirected graph, we can use DFS or Union-Find.
-#
-#   https://www.geeksforgeeks.org/detect-cycle-undirected-graph/
-#   https://www.geeksforgeeks.org/union-find/
-#
-# --END--
+"""
+How to detect circle?
 
+1) In directed graph, we use colors as flag to detect circle.
+
+  http://www.geeksforgeeks.org/detect-cycle-direct-graph-using-colors/
+
+2) In udirected graph, we can use DFS or Union-Find.
+
+  https://www.geeksforgeeks.org/detect-cycle-undirected-graph/
+  https://www.geeksforgeeks.org/union-find/
+
+--END--
+"""
 
 # directed graph
 def detect_circle_dg(g):

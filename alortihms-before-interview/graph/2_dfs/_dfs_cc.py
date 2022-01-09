@@ -1,19 +1,20 @@
-# 1. Check if v connected to w in connected on O(1) constant time.
-#
-# 2. Union Find can not find in constant time.
-#
-# 3. Use DFS and assign IDs.
-#
-#   0 --- 1           7 --- 8
-#   |
-#   --- 2
-#   |
-#   --- 5 --- 4 --- 3             <= we got two group in this graph
-#   |        /
-#   --- 6 --/
-#
-#
-# --END--
+"""
+1. Check if v connected to w in connected on O(1) constant time.
+
+2. Union Find can not find in constant time.
+
+3. Use DFS and assign IDs.
+
+  0 --- 1           7 --- 8
+  |
+  --- 2
+  |
+  --- 5 --- 4 --- 3             <= we got two group in this graph
+  |        /
+  --- 6 --/
+
+--END--
+"""
 
 
 def cc(g):

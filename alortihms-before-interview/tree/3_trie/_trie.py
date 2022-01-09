@@ -1,20 +1,22 @@
-# Trie
-#
-# 1. Example:
-#   Insert: Hey, Hit, Pig
-#
-#                       root = {'H', 'P'}
-#                               /      \
-#                              /        \
-#                         {'e', 'i'}   {'i'}
-#                          /      \        \
-#                         /        \        \
-#                      {'y'}     {'END'}   {'g'}
-#                       /                    \
-#                      /                      \
-#                   {'END'}                  {'END'} <= `END` is the string ending flag
-#
-# --END--
+"""
+Trie
+
+1. Example:
+  Insert: Hey, Hit, Pig
+
+                      root = {'H', 'P'}
+                              /      \
+                             /        \
+                        {'e', 'i'}   {'i'}
+                         /      \        \
+                        /        \        \
+                     {'y'}     {'END'}   {'g'}
+                      /                    \
+                     /                      \
+                  {'END'}                  {'END'} <= `END` is the string ending flag
+
+--END--
+"""
 
 
 class Trie(object):
