@@ -22,7 +22,6 @@ def iterative(root):
     cur = root
     stack = []
 
-    #
     while stack or cur:
         if cur:
             res.append(cur.val)
